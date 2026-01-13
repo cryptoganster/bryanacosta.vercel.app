@@ -1,3 +1,4 @@
+import { Link } from '@/i18n/routing'
 import { cn } from '@/shared/lib/cn'
 
 interface NavLinkProps {
@@ -8,7 +9,7 @@ interface NavLinkProps {
 
 export function NavLink({ href, children, className }: NavLinkProps) {
   return (
-    <a
+    <Link
       className={cn(
         'text-muted-foreground hover:text-white transition-all text-sm font-medium tracking-wide',
         className
@@ -16,6 +17,6 @@ export function NavLink({ href, children, className }: NavLinkProps) {
       href={href}
     >
       {children}
-    </a>
+    </Link>
   )
 }

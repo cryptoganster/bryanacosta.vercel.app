@@ -1,8 +1,12 @@
 import type React from 'react'
 import type { Metadata } from 'next'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 import { Noto_Sans, Space_Grotesk, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import { locales, type Locale } from '@/i18n/config'
+import '../globals.css'
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -45,17 +49,33 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
+
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode
-}>) {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+
+  if (!locales.includes(locale as Locale)) {
+    notFound()
+  }
+
+  const messages = await getMessages()
+
   return (
-    <html lang="es" className="dark">
+    <html lang={locale} className="dark">
       <body
         className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
         <Analytics />
       </body>
     </html>

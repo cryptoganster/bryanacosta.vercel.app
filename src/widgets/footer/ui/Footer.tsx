@@ -1,3 +1,5 @@
+import { Link } from '@/i18n/routing'
+
 export function Footer() {
   return (
     <footer className="py-12 border-t border-white/5">
@@ -6,18 +8,18 @@ export function Footer() {
           © 2024 DevPortfolio. Built with Next.js and Tailwind.
         </p>
         <div className="flex gap-6">
-          <a
+          <Link
             href="#"
             className="text-sm text-muted-foreground hover:text-white transition-colors"
           >
             Privacy
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="text-sm text-muted-foreground hover:text-white transition-colors"
           >
             Terms
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
