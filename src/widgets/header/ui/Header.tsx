@@ -1,8 +1,14 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import { Terminal, Menu } from 'lucide-react'
 import { Button } from '@/shared/ui/button'
 import { NavLink } from '@/features/navigation/ui/NavLink'
+import { LanguageSwitcher } from '@/shared/ui/language-switcher'
 
 export function Header() {
+  const t = useTranslations('header')
+
   return (
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -11,23 +17,24 @@ export function Header() {
             <Terminal className="text-white size-5" />
           </div>
           <h2 className="text-white text-xl font-bold tracking-tight font-display">
-            DevPortfolio
+            {t('brand')}
           </h2>
         </div>
 
         <nav className="hidden md:flex items-center gap-10">
-          <NavLink href="#">Soluciones</NavLink>
-          <NavLink href="#">Proyectos</NavLink>
-          <NavLink href="#">Stack</NavLink>
-          <NavLink href="#">Trayectoria</NavLink>
+          <NavLink href="#">{t('nav.solutions')}</NavLink>
+          <NavLink href="#">{t('nav.projects')}</NavLink>
+          <NavLink href="#">{t('nav.stack')}</NavLink>
+          <NavLink href="#">{t('nav.journey')}</NavLink>
         </nav>
 
         <div className="flex items-center gap-4">
+          <LanguageSwitcher />
           <Button
             variant="outline"
             className="hidden sm:flex h-11 px-6 rounded-xl border-white/10 hover:bg-white/5 hover:border-white/30 text-white font-bold bg-transparent"
           >
-            Descargar CV
+            {t('downloadCV')}
           </Button>
           <Button variant="ghost" size="icon" className="md:hidden text-white">
             <Menu className="size-5" />
