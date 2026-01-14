@@ -34,7 +34,10 @@ export function Hero() {
         <Avatar />
 
         <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto w-full">
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-neon-blue">
+          <div
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10 bg-white/5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em]"
+            style={{ color: '#00E78A' }}
+          >
             <Sparkles className="size-3 sm:size-3.5" /> {t('badge')}
           </div>
 
@@ -45,7 +48,9 @@ export function Hero() {
               for{' '}
               <span
                 className="inline-block px-3 py-1 rounded-xl"
-                style={{ background: 'linear-gradient(90deg, #4800ffff)' }}
+                style={{
+                  background: 'linear-gradient(90deg, #4800ffff, #E4606E)',
+                }}
               >
                 <RotatingText
                   texts={rotatingWords}
@@ -69,7 +74,21 @@ export function Hero() {
           <TechStackScroller />
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full justify-center pt-2 sm:pt-4 px-4 sm:px-0">
-            <Button className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-[0_0_30px_rgba(37,37,244,0.4)] hover:shadow-[0_0_45px_rgba(37,37,244,0.6)] hover:-translate-y-1 active:scale-95">
+            <Button
+              className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl text-white font-bold transition-all hover:-translate-y-1 active:scale-95"
+              style={{
+                background: '#4800ff',
+                boxShadow: '0 0 30px rgba(72, 0, 255, 0.4)',
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.boxShadow =
+                  '0 0 45px rgba(72, 0, 255, 0.6)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.boxShadow =
+                  '0 0 30px rgba(72, 0, 255, 0.4)')
+              }
+            >
               {t('cta.explore')} <ArrowRight className="ml-2 size-4" />
             </Button>
             <Button
