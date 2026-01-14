@@ -92,6 +92,7 @@
   --font-sans: 'Noto Sans', 'Geist Fallback', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --font-display: 'Space Grotesk', 'Geist Fallback', sans-serif;
+  --font-figtree: 'Figtree', 'Geist Fallback', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -236,5 +237,9 @@
 
   .font-display {
     font-family: var(--font-display);
+  }
+
+  .font-figtree {
+    font-family: var(--font-figtree);
   }
 }

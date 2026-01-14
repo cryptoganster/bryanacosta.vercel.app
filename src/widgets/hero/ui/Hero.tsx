@@ -5,19 +5,35 @@ import { useTranslations } from 'next-intl'
 import { Button } from '@/shared/ui/button'
 import { Avatar } from '@/shared/ui/avatar'
 import { TechStackScroller } from './TechStackScroller'
-import { StatsCards } from './StatsCards'
 import { SocialLinks } from '@/features/social-share/ui/SocialLinks'
 import RotatingText from '@/shared/ui/rotating-text'
+import { useEffect, useState } from 'react'
 
 export function Hero() {
   const t = useTranslations('hero')
   const rotatingWords = t.raw('rotatingWords') as string[]
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-16 md:pb-24 flex flex-col items-center overflow-x-hidden">
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] bg-primary/20 rounded-full blur-[120px] md:blur-[160px] -z-10 opacity-50" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] bg-neon-purple/15 rounded-full blur-[100px] md:blur-[120px] -z-10" />
-      <div className="absolute top-[20%] left-[-10%] w-[60vw] max-w-[400px] h-[40vh] max-h-[400px] bg-neon-green/10 rounded-full blur-[80px] md:blur-[100px] -z-10" />
+      {/* Blur backgrounds - solo en desktop */}
+      {!isMobile && (
+        <>
+          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] bg-primary/20 rounded-full blur-[120px] md:blur-[160px] -z-10 opacity-50" />
+          <div className="absolute bottom-[10%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] bg-neon-purple/15 rounded-full blur-[100px] md:blur-[120px] -z-10" />
+          <div className="absolute top-[20%] left-[-10%] w-[60vw] max-w-[400px] h-[40vh] max-h-[400px] bg-neon-green/10 rounded-full blur-[80px] md:blur-[100px] -z-10" />
+        </>
+      )}
 
       <div
         className="absolute inset-0 -z-10"
@@ -41,13 +57,15 @@ export function Hero() {
             <Sparkles className="size-3 sm:size-3.5" /> {t('badge')}
           </div>
 
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight font-display leading-[1.1] text-white px-4 sm:px-0 w-full flex flex-col items-center">
-            <span>Turning ideas</span>
-            <span>into software</span>
-            <span className="flex items-center gap-2 sm:gap-3">
-              for{' '}
+          <h1
+            className="sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight font-figtree leading-[1.1] text-white px-2 sm:px-0 w-full text-center"
+            style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)' }}
+          >
+            <span className="block">Turning ideas</span>
+            <span className="block">into software for</span>
+            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
               <span
-                className="inline-block px-3 py-1 rounded-xl"
+                className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-xl"
                 style={{
                   background: 'linear-gradient(90deg, #4800ffff, #E4606E)',
                 }}
@@ -56,17 +74,21 @@ export function Hero() {
                   texts={rotatingWords}
                   mainClassName="inline-flex"
                   elementLevelClassName="text-white"
-                  splitBy="characters"
-                  staggerDuration={0.05}
+                  splitBy={isMobile ? 'words' : 'characters'}
+                  staggerDuration={isMobile ? 0 : 0.05}
                   staggerFrom="first"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 10 }}
-                  transition={{
-                    type: 'spring',
-                    damping: 25,
-                    stiffness: 300,
-                  }}
+                  transition={
+                    isMobile
+                      ? { duration: 0.3 }
+                      : {
+                          type: 'spring',
+                          damping: 25,
+                          stiffness: 300,
+                        }
+                  }
                   rotationInterval={3000}
                 />
               </span>
@@ -84,15 +106,21 @@ export function Hero() {
               className="w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl text-white font-bold transition-all hover:-translate-y-1 active:scale-95"
               style={{
                 background: '#4800ff',
-                boxShadow: '0 0 30px rgba(72, 0, 255, 0.4)',
+                boxShadow: isMobile ? 'none' : '0 0 30px rgba(72, 0, 255, 0.4)',
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.boxShadow =
-                  '0 0 45px rgba(72, 0, 255, 0.6)')
+              onMouseEnter={
+                !isMobile
+                  ? (e) =>
+                      (e.currentTarget.style.boxShadow =
+                        '0 0 45px rgba(72, 0, 255, 0.6)')
+                  : undefined
               }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.boxShadow =
-                  '0 0 30px rgba(72, 0, 255, 0.4)')
+              onMouseLeave={
+                !isMobile
+                  ? (e) =>
+                      (e.currentTarget.style.boxShadow =
+                        '0 0 30px rgba(72, 0, 255, 0.4)')
+                  : undefined
               }
             >
               {t('cta.explore')} <ArrowRight className="ml-2 size-4" />
@@ -110,8 +138,6 @@ export function Hero() {
             <CheckCircle2 className="text-neon-green size-3.5 sm:size-4" />
             <span>{t('guarantee')}</span>
           </div>
-
-          <StatsCards />
         </div>
       </div>
     </main>

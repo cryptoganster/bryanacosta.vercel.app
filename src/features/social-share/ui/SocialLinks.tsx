@@ -1,4 +1,5 @@
-import { AtSign, Terminal } from 'lucide-react'
+import { Terminal } from 'lucide-react'
+import Image from 'next/image'
 
 export function SocialLinks() {
   return (
@@ -7,7 +8,13 @@ export function SocialLinks() {
         className="size-12 rounded-xl bg-surface border border-white/5 flex items-center justify-center text-muted-foreground hover:text-white hover:border-primary/50 transition-all hover:bg-primary/10"
         href="#"
       >
-        <AtSign className="size-5" />
+        <Image
+          src="/github-mark-white.svg"
+          alt="GitHub"
+          width={20}
+          height={20}
+          className="size-5"
+        />
       </a>
       <a
         className="size-12 rounded-xl bg-surface border border-white/5 flex items-center justify-center text-muted-foreground hover:text-white hover:border-primary/50 transition-all hover:bg-primary/10"
