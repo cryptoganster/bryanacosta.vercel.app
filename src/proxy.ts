@@ -1,7 +1,6 @@
 import createMiddleware from 'next-intl/middleware'
 import { routing } from './i18n/routing'
 import { locales, defaultLocale } from './i18n/config'
-import type { NextRequest } from 'next/server'
 
 export default createMiddleware({
   ...routing,

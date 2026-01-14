@@ -98,39 +98,7 @@ export default async function LocaleLayout({
       <body
         className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <NextIntlClientProvider
-          messages={messages}
-          onError={(error) => {
-            if (error.code === 'MISSING_MESSAGE') {
-              // In development, log the missing key for debugging
-              if (process.env.NODE_ENV === 'development') {
-                console.warn(
-                  `Missing translation in locale ${locale}:`,
-                  error.message
-                )
-              }
-            } else {
-              // Log other errors
-              console.error('i18n error:', error)
-            }
-          }}
-          getMessageFallback={({ namespace, key, error }) => {
-            const path = [namespace, key]
-              .filter((part) => part != null)
-              .join('.')
-
-            if (error.code === 'MISSING_MESSAGE') {
-              // In development, return a clear indicator
-              if (process.env.NODE_ENV === 'development') {
-                return `[Missing: ${path}]`
-              }
-              // In production, return the key path
-              return path
-            }
-
-            return `Error: ${path}`
-          }}
-        >
+        <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
         <Analytics />
