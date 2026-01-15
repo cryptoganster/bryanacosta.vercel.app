@@ -1,22 +1,25 @@
+'use client'
+
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const techStack = [
-  { logo: '/logos/python.png', alt: 'Python' },
-  { logo: '/logos/java.png', alt: 'Java' },
-  { logo: '/logos/typescript.png', alt: 'TypeScript' },
-  { logo: '/logos/nodejs.png', alt: 'NodeJs' },
-  { logo: '/logos/nestjs.svg', alt: 'NestJs' },
-  { logo: '/logos/html5.png', alt: 'HTML5' },
-  { logo: '/logos/css3.png', alt: 'CSS3' },
-  { logo: '/logos/javascript.png', alt: 'JavaScript' },
-  { logo: '/logos/react.png', alt: 'ReactJs' },
-  { logo: '/logos/vite.png', alt: 'Vite' },
-  { logo: '/logos/postgres.png', alt: 'PostgreSQL' },
-  { logo: '/logos/aws.png', alt: 'AWS' },
-  { logo: '/logos/google-cloud.png', alt: 'GoogleCloud' },
-  { logo: '/logos/azure.png', alt: 'Azure' },
-  { logo: '/logos/kubernetes.png', alt: 'Kubernetes' },
-  { logo: '/logos/terraform.svg', alt: 'Terraform' },
+  { logo: '/logos/python.png', altKey: 'python' },
+  { logo: '/logos/java.png', altKey: 'java' },
+  { logo: '/logos/typescript.png', altKey: 'typescript' },
+  { logo: '/logos/nodejs.png', altKey: 'nodejs' },
+  { logo: '/logos/nestjs.svg', altKey: 'nestjs' },
+  { logo: '/logos/html5.png', altKey: 'html5' },
+  { logo: '/logos/css3.png', altKey: 'css3' },
+  { logo: '/logos/javascript.png', altKey: 'javascript' },
+  { logo: '/logos/react.png', altKey: 'react' },
+  { logo: '/logos/vite.png', altKey: 'vite' },
+  { logo: '/logos/postgres.png', altKey: 'postgres' },
+  { logo: '/logos/aws.png', altKey: 'aws' },
+  { logo: '/logos/google-cloud.png', altKey: 'googleCloud' },
+  { logo: '/logos/azure.png', altKey: 'azure' },
+  { logo: '/logos/kubernetes.png', altKey: 'kubernetes' },
+  { logo: '/logos/terraform.svg', altKey: 'terraform' },
 ]
 
 /**
@@ -31,6 +34,8 @@ const techStack = [
  * Fuentes: Mozilla MDN, Framer Motion benchmarks
  */
 export function TechStackScroller() {
+  const t = useTranslations('techStack')
+
   return (
     <div
       className="w-full max-w-4xl pt-2 sm:pt-4 pb-2 relative overflow-hidden mask-gradient-x"
@@ -49,7 +54,7 @@ export function TechStackScroller() {
           >
             <Image
               src={tech.logo}
-              alt={tech.alt}
+              alt={t(tech.altKey as any)}
               width={48}
               height={48}
               className="w-12 h-12 object-contain"
@@ -67,7 +72,7 @@ export function TechStackScroller() {
           >
             <Image
               src={tech.logo}
-              alt={tech.alt}
+              alt={t(tech.altKey as any)}
               width={48}
               height={48}
               className="w-12 h-12 object-contain"

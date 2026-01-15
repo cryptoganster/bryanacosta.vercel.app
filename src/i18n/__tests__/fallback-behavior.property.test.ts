@@ -192,6 +192,8 @@ describe('Translation Fallback Behavior', () => {
             'skills',
             'metadata',
             'interpolation',
+            'social',
+            'techStack',
           ]
           expect(validNamespaces).toContain(parts[0])
 
@@ -218,7 +220,7 @@ describe('Translation Fallback Behavior', () => {
       // Critical keys that must always have fallback values
       const criticalKeys = [
         'header.brand',
-        'hero.title',
+        'hero.titleLine1',
         'footer.copyright',
         'projects.title',
       ]

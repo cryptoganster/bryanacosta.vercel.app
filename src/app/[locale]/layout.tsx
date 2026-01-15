@@ -3,7 +3,13 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { Noto_Sans, Space_Grotesk, Geist_Mono, Figtree } from 'next/font/google'
+import {
+  Noto_Sans,
+  Space_Grotesk,
+  Geist_Mono,
+  Figtree,
+  Cookie,
+} from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { locales, type Locale } from '@/i18n/config'
 import '../globals.css'
@@ -29,6 +35,12 @@ const figtree = Figtree({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-figtree',
+})
+
+const cookie = Cookie({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cookie',
 })
 
 export async function generateMetadata({
@@ -102,7 +114,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark">
       <body
-        className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} ${figtree.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${notoSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} ${figtree.variable} ${cookie.variable} font-sans antialiased overflow-x-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
           {children}
