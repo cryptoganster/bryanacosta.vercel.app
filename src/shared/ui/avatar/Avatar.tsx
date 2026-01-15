@@ -1,4 +1,10 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
 export function Avatar() {
+  const t = useTranslations('hero')
+
   return (
     <div className="relative group mb-10 animate-float">
       {/* Glow Effect */}
@@ -13,7 +19,7 @@ export function Avatar() {
       <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full p-1.5 bg-background">
         <div className="w-full h-full rounded-full bg-cover bg-center border-2 border-white/10 overflow-hidden bg-surface shadow-2xl">
           <img
-            alt="Developer Avatar"
+            alt={t('avatarAlt')}
             className="w-full h-full object-cover"
             src="/professional-developer-portrait-dark-background.png"
           />

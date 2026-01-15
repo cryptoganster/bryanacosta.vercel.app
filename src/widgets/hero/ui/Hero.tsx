@@ -2,6 +2,7 @@
 
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { Button } from '@/shared/ui/button'
 import { Avatar } from '@/shared/ui/avatar'
 import { TechStackScroller } from './TechStackScrollerCSS'
@@ -25,24 +26,30 @@ export function Hero() {
   }, [])
 
   return (
-    <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-16 md:pb-24 flex flex-col items-center overflow-x-hidden">
-      {/* Blur backgrounds - solo en desktop */}
-      {!isMobile && (
-        <>
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] bg-primary/20 rounded-full blur-[120px] md:blur-[160px] -z-10 opacity-50" />
-          <div className="absolute bottom-[10%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] bg-neon-purple/15 rounded-full blur-[100px] md:blur-[120px] -z-10" />
-          <div className="absolute top-[20%] left-[-10%] w-[60vw] max-w-[400px] h-[40vh] max-h-[400px] bg-neon-green/10 rounded-full blur-[80px] md:blur-[100px] -z-10" />
-        </>
-      )}
+    <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-16 md:pb-24 flex flex-col items-center overflow-x-hidden bg-transparent">
+      {/* Blur backgrounds */}
+      <div
+        className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] rounded-full blur-[120px] md:blur-[160px] opacity-50 pointer-events-none"
+        style={{ background: '#4E03F9', zIndex: 1 }}
+      />
+      <div
+        className="absolute bottom-[10%] right-[-10%] w-[70vw] max-w-[500px] h-[50vh] max-h-[500px] rounded-full blur-[100px] md:blur-[120px] opacity-40 pointer-events-none"
+        style={{ background: '#CC5183', zIndex: 1 }}
+      />
+      <div
+        className="absolute top-[20%] left-[-10%] w-[60vw] max-w-[400px] h-[40vh] max-h-[400px] rounded-full blur-[80px] md:blur-[100px] opacity-35 pointer-events-none"
+        style={{ background: '#4E03F9', zIndex: 1 }}
+      />
 
       <div
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
             'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
           backgroundSize: '3rem 3rem',
           maskImage:
             'radial-gradient(ellipse 80% 60% at 50% 0%, #000 60%, transparent 100%)',
+          zIndex: 2,
         }}
       />
 
@@ -61,9 +68,25 @@ export function Hero() {
             className="sm:text-7xl md:text-8xl lg:text-8xl font-bold tracking-tight font-figtree leading-[1.1] text-white px-2 sm:px-0 w-full text-center"
             style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)' }}
           >
-            <span className="block">Turning ideas</span>
-            <span className="block">into software for</span>
-            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+            <span className="block">
+              {t('titleLine1')}{' '}
+              <span
+                className="font-cookie font-normal text-[1.2em] inline-flex items-center gap-2"
+                style={{ color: '#DD5C74' }}
+              >
+                {t('titleLine1Italic')}
+                <Image
+                  src="/lamp-icon.svg"
+                  alt="lamp"
+                  width={40}
+                  height={40}
+                  className="inline-block"
+                  style={{ transform: 'rotate(15deg)' }}
+                />
+              </span>
+            </span>
+            <span className="block">{t('titleLine2')}</span>
+            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
               <span
                 className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-xl"
                 style={{

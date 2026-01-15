@@ -1,7 +1,12 @@
+'use client'
+
 import { Terminal } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export function SocialLinks() {
+  const t = useTranslations('social')
+
   return (
     <div className="flex gap-4 sm:ml-4">
       <a
@@ -10,7 +15,7 @@ export function SocialLinks() {
       >
         <Image
           src="/github-mark-white.svg"
-          alt="GitHub"
+          alt={t('github')}
           width={20}
           height={20}
           className="size-5"

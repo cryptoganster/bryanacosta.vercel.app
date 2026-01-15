@@ -11,7 +11,9 @@
   },
   "hero": {
     "badge": "Software Developer",
-    "title": "Turning ideas into software for",
+    "titleLine1": "Turning",
+    "titleLine1Italic": "ideas",
+    "titleLine2": "into software for",
     "titleHighlight": "high-impact code",
     "rotatingWords": [
       "startups",
@@ -25,7 +27,8 @@
       "explore": "Explore Projects",
       "contact": "Start Contact"
     },
-    "guarantee": "Projects delivered on time with guaranteed technical quality"
+    "guarantee": "Projects delivered on time with guaranteed technical quality",
+    "avatarAlt": "Developer Avatar"
   },
   "stats": {
     "achievements": {
@@ -121,5 +124,27 @@
       "description": "Software Developer specializing in scalable architectures, AI, and Full-Stack development",
       "siteName": "Bryan S. Nunez A."
     }
+  },
+  "social": {
+    "github": "GitHub",
+    "terminal": "Terminal"
+  },
+  "techStack": {
+    "python": "Python",
+    "java": "Java",
+    "typescript": "TypeScript",
+    "nodejs": "Node.js",
+    "nestjs": "NestJS",
+    "html5": "HTML5",
+    "css3": "CSS3",
+    "javascript": "JavaScript",
+    "react": "React",
+    "vite": "Vite",
+    "postgres": "PostgreSQL",
+    "aws": "AWS",
+    "googleCloud": "Google Cloud",
+    "azure": "Azure",
+    "kubernetes": "Kubernetes",
+    "terraform": "Terraform"
   }
 }
