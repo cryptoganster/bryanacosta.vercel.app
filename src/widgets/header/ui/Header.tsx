@@ -1,14 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTranslations } from 'next-intl'
 import { Terminal, Menu, X } from 'lucide-react'
 import { Button } from '@/shared/ui/button'
-import { FloatingPillNav } from '@/features/navigation'
+import { FloatingPillNav, useNavigation } from '@/features/navigation'
 import { LanguageSwitcher } from '@/shared/ui/language-switcher'
+import { useTranslations } from 'next-intl'
 
 export function Header() {
   const t = useTranslations('header')
+  const { items: navItems } = useNavigation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Restore menu state after language change
@@ -27,13 +28,6 @@ export function Header() {
   const handleNavClick = () => {
     setIsMobileMenuOpen(false)
   }
-
-  const navItems = [
-    { label: t('nav.solutions'), href: '#' },
-    { label: t('nav.projects'), href: '#' },
-    { label: t('nav.stack'), href: '#' },
-    { label: t('nav.journey'), href: '#' },
-  ]
 
   return (
     <>

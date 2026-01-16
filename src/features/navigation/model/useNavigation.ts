@@ -1,9 +1,13 @@
+import { useTranslations } from 'next-intl'
+
 export function useNavigation() {
+  const t = useTranslations('header')
+
   const items = [
-    { label: 'Soluciones', href: '#' },
-    { label: 'Proyectos', href: '#' },
-    { label: 'Stack', href: '#' },
-    { label: 'Trayectoria', href: '#' },
+    { label: t('nav.solutions'), href: '#solutions' },
+    { label: t('nav.projects'), href: '#projects' },
+    { label: t('nav.stack'), href: '#stack' },
+    { label: t('nav.journey'), href: '#career' },
   ]
 
   return {

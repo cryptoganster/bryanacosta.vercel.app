@@ -13,7 +13,7 @@ import { locales, defaultLocale } from '../config'
 describe('Integration: Routing Configuration', () => {
   it('should have correct locale configuration', () => {
     expect(locales).toEqual(['es', 'en'])
-    expect(defaultLocale).toBe('es')
+    expect(defaultLocale).toBe('en')
   })
 
   it('should include Spanish locale in configuration', () => {
@@ -24,8 +24,8 @@ describe('Integration: Routing Configuration', () => {
     expect(locales).toContain('en')
   })
 
-  it('should use Spanish as default locale', () => {
-    expect(defaultLocale).toBe('es')
+  it('should use English as default locale', () => {
+    expect(defaultLocale).toBe('en')
   })
 
   it('should have "as-needed" locale prefix strategy configured', () => {
@@ -41,21 +41,21 @@ describe('Integration: Routing Configuration', () => {
       path: locale === defaultLocale ? '/' : `/${locale}`,
     }))
 
-    // Spanish (default) should be accessible at /
-    const spanishPath = localePaths.find((p) => p.locale === 'es')
-    expect(spanishPath?.path).toBe('/')
-
-    // English should be accessible at /en
+    // English (default) should be accessible at /
     const englishPath = localePaths.find((p) => p.locale === 'en')
-    expect(englishPath?.path).toBe('/en')
+    expect(englishPath?.path).toBe('/')
+
+    // Spanish should be accessible at /es
+    const spanishPath = localePaths.find((p) => p.locale === 'es')
+    expect(spanishPath?.path).toBe('/es')
   })
 
   it('should validate locale path patterns', () => {
     // Valid locale paths should match these patterns
     const validPaths = [
-      '/', // Default locale (Spanish)
-      '/en', // English locale
-      '/es', // Spanish locale (explicit)
+      '/', // Default locale (English)
+      '/en', // English locale (explicit)
+      '/es', // Spanish locale
       '/en/projects', // English with subpath
       '/es/projects', // Spanish with subpath
     ]
@@ -90,7 +90,7 @@ describe('Integration: Routing Configuration', () => {
     const expectedLocale = defaultLocale
 
     // With "as-needed" strategy, root path uses default locale
-    expect(expectedLocale).toBe('es')
+    expect(expectedLocale).toBe('en')
   })
 
   it('should handle locale-prefixed paths', () => {
@@ -111,7 +111,7 @@ describe('Integration: Routing Configuration', () => {
 
   it('should extract locale from path correctly', () => {
     const testCases = [
-      { path: '/', expected: 'es' }, // Default locale
+      { path: '/', expected: 'en' }, // Default locale
       { path: '/es', expected: 'es' },
       { path: '/en', expected: 'en' },
       { path: '/es/projects', expected: 'es' },
@@ -156,8 +156,8 @@ describe('Integration: Routing Configuration', () => {
       return `/${locale}${pathname}`
     })
 
-    expect(localizedPaths).toContain('/projects') // Spanish (default)
-    expect(localizedPaths).toContain('/en/projects') // English
+    expect(localizedPaths).toContain('/projects') // English (default)
+    expect(localizedPaths).toContain('/es/projects') // Spanish
   })
 
   it('should handle nested paths correctly', () => {
@@ -197,7 +197,7 @@ describe('Integration: Routing Configuration', () => {
 
   it('should have consistent locale configuration', () => {
     expect(locales).toEqual(['es', 'en'])
-    expect(defaultLocale).toBe('es')
+    expect(defaultLocale).toBe('en')
   })
 })
 
@@ -223,7 +223,7 @@ describe('Integration: Locale Detection from Path', () => {
     const match = path.match(/^\/(es|en)/)
     const locale = match ? match[1] : defaultLocale
 
-    expect(locale).toBe('es')
+    expect(locale).toBe('en')
   })
 
   it('should detect locale from paths with subpaths', () => {
@@ -249,7 +249,7 @@ describe('Integration: Locale Detection from Path', () => {
       const match = path.match(/^\/(es|en)/)
       const locale = match ? match[1] : defaultLocale
 
-      expect(locale).toBe('es')
+      expect(locale).toBe('en')
     })
   })
 })

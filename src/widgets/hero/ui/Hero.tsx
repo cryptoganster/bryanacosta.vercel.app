@@ -81,7 +81,11 @@ export function Hero() {
                   width={40}
                   height={40}
                   className="inline-block"
-                  style={{ transform: 'rotate(15deg)' }}
+                  style={{
+                    transform: 'rotate(15deg)',
+                    width: 'auto',
+                    height: 'auto',
+                  }}
                 />
               </span>
             </span>
