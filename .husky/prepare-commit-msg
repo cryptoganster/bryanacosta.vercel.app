@@ -1,0 +1,32 @@
+# Get the commit message file and source
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Only run this check for merge commits
+if [ "$COMMIT_SOURCE" = "merge" ]; then
+  # Get the current branch name
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  
+  # Protected branches that should not receive direct merges
+  protected_branches="master main"
+  
+  # Check if we're on a protected branch
+  for branch in $protected_branches; do
+    if [ "$current_branch" = "$branch" ]; then
+      echo ""
+      echo "❌ ERROR: Direct merges to '$branch' are not allowed!"
+      echo ""
+      echo "Please use the following workflow:"
+      echo "  1. Push your feature branch: git push origin <feature-branch>"
+      echo "  2. Create a Pull Request on GitHub"
+      echo "  3. Wait for review and approval"
+      echo "  4. Merge through GitHub's interface"
+      echo ""
+      echo "If this is an emergency, you can bypass with: git merge --no-verify"
+      echo ""
+      exit 1
+    fi
+  done
+fi
+
+exit 0
