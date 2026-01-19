@@ -88,15 +88,47 @@ terraform apply
 
 Terraform mostrará los cambios que se aplicarán. Escribe `yes` para confirmar.
 
+### ⚠️ Aplicar Configuración Estricta (Recomendado)
+
+Para aplicar la configuración con `enforce_admins = true`:
+
+```bash
+# 1. Revisar los cambios
+terraform plan
+
+# 2. Aplicar (esto activará la protección estricta)
+terraform apply
+
+# 3. Verificar que las reglas están activas
+terraform output
+```
+
+**IMPORTANTE:** Una vez aplicado `enforce_admins = true`, incluso tú (como admin) no podrás:
+- Hacer push directo a master/main
+- Bypassear los status checks
+- Hacer force push
+- Eliminar las ramas protegidas
+
+**Para hacer cambios después de aplicar:**
+1. Crea una rama feature
+2. Haz tus cambios
+3. Push de la rama
+4. Crea un PR
+5. Espera que pasen los checks
+6. Obtén aprobación
+7. Merge desde GitHub
+
 ### Destruir recursos (remover protecciones)
 
 ```bash
 terraform destroy
 ```
 
+⚠️ **Advertencia:** Esto removerá TODAS las protecciones de rama.
+
 ## 🔧 Configuración de Branch Protection
 
-### Reglas Aplicadas
+### Reglas Aplicadas (Configuración Estricta)
 
 #### Pull Request Reviews
 
@@ -112,6 +144,7 @@ terraform destroy
   - `type-check` - Verificación de tipos TypeScript
   - `lint` - Linting con ESLint
   - `format-check` - Verificación de formato con Prettier
+  - `test` - Ejecución de tests
 
 #### Restricciones Adicionales
 
@@ -120,7 +153,27 @@ terraform destroy
 - ❌ No permite eliminación de ramas
 - ❌ No requiere historial lineal (permite merge commits)
 - ❌ No requiere commits firmados
-- ❌ No aplica restricciones a administradores
+- ✅ **CRÍTICO: Aplica restricciones a administradores (`enforce_admins = true`)**
+
+### 🚫 Política de No Bypass
+
+**Esta configuración implementa una política de cero bypass:**
+
+1. **`enforce_admins = true`** - Ni siquiera los administradores del repositorio pueden bypassear las reglas
+2. **Ramas protegidas**: `master` y `main`
+3. **Workflow obligatorio**: Todos los cambios DEBEN pasar por Pull Requests
+
+**Esto significa:**
+- ❌ No se pueden hacer push directos a master/main
+- ❌ No se pueden hacer merges locales y luego push
+- ❌ No se puede usar `--force` para sobrescribir
+- ❌ Los administradores NO pueden bypassear estas reglas
+- ✅ TODOS los cambios requieren PR + aprobación + checks pasados
+
+**Capas de protección:**
+1. **Hooks locales de Husky** - Primera línea de defensa (puede ser bypaseada localmente)
+2. **GitHub Branch Protection** - Enforcement real (NO puede ser bypaseada)
+3. **`enforce_admins = true`** - Asegura que nadie, ni siquiera admins, pueda bypassear
 
 ### Personalizar Configuración
 
