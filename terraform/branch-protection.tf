@@ -9,7 +9,7 @@ resource "github_branch_protection" "protected_branches" {
     dismiss_stale_reviews           = var.dismiss_stale_reviews
     require_code_owner_reviews      = var.require_code_owner_reviews
     required_approving_review_count = var.required_approving_review_count
-    require_last_push_approval      = true
+    require_last_push_approval      = false
   }
 
   # Require status checks to pass before merging
