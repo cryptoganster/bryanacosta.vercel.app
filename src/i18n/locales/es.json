@@ -338,6 +338,6 @@
     "walletConnect": "WalletConnect",
     "kotlin": "Kotlin",
     "firebase": "Firebase",
-    "elastic-search": "Elasticsearch"
+    "elasticsearch": "Elasticsearch"
   }
 }

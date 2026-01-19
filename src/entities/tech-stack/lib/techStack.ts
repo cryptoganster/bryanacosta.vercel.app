@@ -28,7 +28,7 @@ export const techStack: TechStackItem[] = [
   { logo: '/tech-logos/google-cloud.svg', altKey: 'googleCloud' },
   { logo: '/tech-logos/azure.svg', altKey: 'azure' },
   { logo: '/tech-logos/kubernetes.svg', altKey: 'kubernetes' },
-  { logo: '/tech-logos/elasticsearch.svg', altKey: 'elastic-search' },
+  { logo: '/tech-logos/elasticsearch.svg', altKey: 'elasticsearch' },
   { logo: '/tech-logos/datadog.svg', altKey: 'datadog' },
   { logo: '/tech-logos/terraform.svg', altKey: 'terraform' },
   { logo: '/tech-logos/docker.svg', altKey: 'docker' },
