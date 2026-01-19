@@ -21,8 +21,8 @@ describe('Services Widget', () => {
   it('should display section header with correct text', () => {
     renderWithIntl(<Services />)
 
-    expect(screen.getByText('Capabilities')).toBeInTheDocument()
-    expect(screen.getByText('ENGINEERING ECOSYSTEM')).toBeInTheDocument()
+    expect(screen.getByText('Services')).toBeInTheDocument()
+    expect(screen.getByText('WHAT I CAN DO')).toBeInTheDocument()
     expect(
       screen.getByText(/We build resilient digital infrastructure/)
     ).toBeInTheDocument()
@@ -63,7 +63,7 @@ describe('Services Widget', () => {
 
     const h2 = container.querySelector('h2')
     expect(h2).toBeInTheDocument()
-    expect(h2?.textContent).toBe('ENGINEERING ECOSYSTEM')
+    expect(h2?.textContent).toBe('WHAT I CAN DO')
 
     const h3Elements = container.querySelectorAll('h3')
     expect(h3Elements.length).toBeGreaterThan(0)

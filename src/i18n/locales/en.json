@@ -341,8 +341,8 @@
     "elasticsearch": "Elasticsearch"
   },
   "services": {
-    "label": "Capabilities",
-    "title": "ENGINEERING ECOSYSTEM",
+    "label": "Services",
+    "title": "WHAT I CAN DO",
     "subtitle": "We build resilient digital infrastructure. From MVPs to enterprise-grade system migrations.",
     "cards": {
       "custom-software": {

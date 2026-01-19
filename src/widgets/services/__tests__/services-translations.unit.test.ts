@@ -9,8 +9,8 @@ describe('Services Translations', () => {
     })
 
     it('should have section header translations', () => {
-      expect(enTranslations.services.label).toBe('Capabilities')
-      expect(enTranslations.services.title).toBe('ENGINEERING ECOSYSTEM')
+      expect(enTranslations.services.label).toBe('Services')
+      expect(enTranslations.services.title).toBe('WHAT I CAN DO')
       expect(enTranslations.services.subtitle).toBeDefined()
     })
 
