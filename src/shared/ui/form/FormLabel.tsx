@@ -22,7 +22,7 @@ export function FormLabel({
       )}
     >
       {children}
-      {required && <span className="ml-1 text-primary">*</span>}
+      {required && <span className="ml-1 text-[#4A2BFC]">*</span>}
     </label>
   )
 }

@@ -99,7 +99,7 @@ export function ValidatedSelect({
             </option>
           ))}
         </select>
-        <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-primary">
+        <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#4A2BFC]">
           <span className="material-symbols-outlined">expand_more</span>
         </div>
       </div>

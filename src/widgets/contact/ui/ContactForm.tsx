@@ -170,10 +170,10 @@ export function ContactForm({ className }: ContactFormProps) {
             disabled={!isFormValid || isSubmitting}
             className={cn(
               'group relative w-full overflow-hidden rounded-xl px-8 py-4 font-medium transition-all duration-300',
-              'bg-gradient-to-r from-primary to-violet-500',
-              'hover:shadow-[0_0_30px_rgba(0,187,224,0.3)]',
+              'bg-[#4A2BFC]',
+              'hover:shadow-[0_0_30px_rgba(74,43,252,0.3)]',
               'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
-              'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#0a0b0d]'
+              'focus:outline-none focus:ring-2 focus:ring-[#4A2BFC] focus:ring-offset-2 focus:ring-offset-[#0a0b0d]'
             )}
           >
             {/* Shimmer effect on hover */}
