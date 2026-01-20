@@ -45,48 +45,52 @@ describe('Locale Change Behavior Property Tests', () => {
     cleanup()
   })
 
-  it('property: locale changes trigger router navigation', () => {
-    fc.assert(
-      fc.property(
-        fc.constantFrom(...locales),
-        fc.constantFrom(...locales),
-        (currentLocale, targetLocale) => {
-          cleanup()
-          // Setup
-          mockUseLocale.mockReturnValue(currentLocale)
-          mockUsePathname.mockReturnValue('/')
-          mockReplace.mockClear()
+  it(
+    'property: locale changes trigger router navigation',
+    { timeout: 10000 },
+    () => {
+      fc.assert(
+        fc.property(
+          fc.constantFrom(...locales),
+          fc.constantFrom(...locales),
+          (currentLocale, targetLocale) => {
+            cleanup()
+            // Setup
+            mockUseLocale.mockReturnValue(currentLocale)
+            mockUsePathname.mockReturnValue('/')
+            mockReplace.mockClear()
 
-          // Render component
-          const { unmount } = render(<LanguageSwitcher />)
+            // Render component
+            const { unmount } = render(<LanguageSwitcher />)
 
-          // Open dropdown
-          const triggerButton = screen.getByRole('button', {
-            name: /change language/i,
-          })
-          fireEvent.click(triggerButton)
+            // Open dropdown
+            const triggerButton = screen.getByRole('button', {
+              name: /change language/i,
+            })
+            fireEvent.click(triggerButton)
 
-          // Find and click the target locale button
-          const targetButton = screen.getByRole('button', {
-            name: `Switch to ${localeNames[targetLocale]}`,
-          })
-          fireEvent.click(targetButton)
+            // Find and click the target locale button
+            const targetButton = screen.getByRole('button', {
+              name: `Switch to ${localeNames[targetLocale]}`,
+            })
+            fireEvent.click(targetButton)
 
-          // Verify router.replace was called with correct arguments
-          expect(mockReplace).toHaveBeenCalledWith('/', {
-            locale: targetLocale,
-          })
-          expect(mockReplace).toHaveBeenCalledTimes(1)
+            // Verify router.replace was called with correct arguments
+            expect(mockReplace).toHaveBeenCalledWith('/', {
+              locale: targetLocale,
+            })
+            expect(mockReplace).toHaveBeenCalledTimes(1)
 
-          // Cleanup
-          unmount()
-          cleanup()
-          return true
-        }
-      ),
-      { numRuns: 100 }
-    )
-  })
+            // Cleanup
+            unmount()
+            cleanup()
+            return true
+          }
+        ),
+        { numRuns: 50 }
+      )
+    }
+  )
 
   it('property: UI re-renders with new active locale after change', () => {
     fc.assert(

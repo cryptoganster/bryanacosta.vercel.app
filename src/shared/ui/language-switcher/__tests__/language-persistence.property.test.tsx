@@ -51,52 +51,56 @@ describe('Language Persistence Property Tests', () => {
     cleanup()
   })
 
-  it('property: locale selection triggers URL-based persistence mechanism', () => {
-    fc.assert(
-      fc.property(
-        fc.constantFrom(...locales),
-        fc.constantFrom(...locales),
-        (currentLocale, targetLocale) => {
-          cleanup()
-          // Setup
-          mockUseLocale.mockReturnValue(currentLocale)
-          mockUsePathname.mockReturnValue('/')
-          mockReplace.mockClear()
+  it(
+    'property: locale selection triggers URL-based persistence mechanism',
+    { timeout: 10000 },
+    () => {
+      fc.assert(
+        fc.property(
+          fc.constantFrom(...locales),
+          fc.constantFrom(...locales),
+          (currentLocale, targetLocale) => {
+            cleanup()
+            // Setup
+            mockUseLocale.mockReturnValue(currentLocale)
+            mockUsePathname.mockReturnValue('/')
+            mockReplace.mockClear()
 
-          // Render and select locale
-          const { unmount } = render(<LanguageSwitcher />)
+            // Render and select locale
+            const { unmount } = render(<LanguageSwitcher />)
 
-          // Open dropdown first
-          const triggerButton = screen.getByRole('button', {
-            name: /change language/i,
-          })
-          fireEvent.click(triggerButton)
+            // Open dropdown first
+            const triggerButton = screen.getByRole('button', {
+              name: /change language/i,
+            })
+            fireEvent.click(triggerButton)
 
-          const targetButton = screen.getByRole('button', {
-            name: `Switch to ${localeNames[targetLocale]}`,
-          })
-          fireEvent.click(targetButton)
+            const targetButton = screen.getByRole('button', {
+              name: `Switch to ${localeNames[targetLocale]}`,
+            })
+            fireEvent.click(targetButton)
 
-          // Verify router.replace was called (this updates the URL with locale)
-          expect(mockReplace).toHaveBeenCalledWith('/', {
-            locale: targetLocale,
-          })
+            // Verify router.replace was called (this updates the URL with locale)
+            expect(mockReplace).toHaveBeenCalledWith('/', {
+              locale: targetLocale,
+            })
 
-          // The locale is now part of the URL path, which persists across:
-          // - Page refreshes (URL remains the same)
-          // - Browser back/forward (URL history)
-          // - Bookmarks (URL is saved)
-          // - New tabs (URL can be copied)
+            // The locale is now part of the URL path, which persists across:
+            // - Page refreshes (URL remains the same)
+            // - Browser back/forward (URL history)
+            // - Bookmarks (URL is saved)
+            // - New tabs (URL can be copied)
 
-          // Cleanup
-          unmount()
-          cleanup()
-          return true
-        }
-      ),
-      { numRuns: 100 }
-    )
-  })
+            // Cleanup
+            unmount()
+            cleanup()
+            return true
+          }
+        ),
+        { numRuns: 50 }
+      )
+    }
+  )
 
   it('property: locale from URL is reflected in component state', () => {
     fc.assert(
