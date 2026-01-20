@@ -42,7 +42,7 @@ export function Hero() {
   }
 
   return (
-    <main className="relative min-h-screen pt-32 sm:pt-32 md:pt-36 pb-12 md:pb-20 flex flex-col items-center overflow-x-hidden bg-transparent">
+    <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 flex flex-col items-center overflow-x-hidden bg-transparent px-4 sm:px-6">
       {/* Blur backgrounds */}
       <div
         className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[90vw] max-w-[800px] h-[60vh] max-h-[600px] rounded-full blur-[120px] md:blur-[160px] opacity-50 pointer-events-none"
@@ -69,12 +69,12 @@ export function Hero() {
         }}
       />
 
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center w-full">
+      <div className="container max-w-[1280px] mx-auto relative z-10 flex flex-col items-center w-full">
         <Avatar />
 
-        <div className="text-center space-y-6 md:space-y-8 max-w-4xl mx-auto w-full">
+        <div className="text-center space-y-3 md:space-y-4 max-w-4xl mx-auto w-full -mt-2 sm:-mt-3 md:-mt-4">
           <div
-            className="inline-flex items-center gap-2 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full border border-white/10 bg-white/5 text-xs sm:text-sm md:text-base tracking-[0.2em] font-figtree mt-4 sm:mt-6 md:mt-8"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full border border-white/10 bg-white/5 text-xs sm:text-sm md:text-base tracking-[0.2em] font-figtree"
             style={{ color: '#ffffffff', fontWeight: 800 }}
           >
             <Image
@@ -88,7 +88,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight font-figtree leading-[1.1] text-white px-2 sm:px-0 w-full text-center"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight font-figtree leading-[1.1] text-white px-2 sm:px-0 w-full text-center -mt-1 sm:-mt-2 md:-mt-3"
             style={{ fontSize: 'clamp(3rem, 10vw, 7rem)' }}
           >
             <span className="block">
@@ -111,7 +111,7 @@ export function Hero() {
               </span>
             </span>
             <span className="block">{t('titleLine2')}</span>
-            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-3">
+            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-5 md:mt-6">
               <span
                 className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-xl"
                 style={{
@@ -143,11 +143,11 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed text-pretty px-4 sm:px-0 w-full">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed text-pretty px-4 sm:px-0 w-full mt-2 sm:mt-3 md:mt-4">
             {t('description')}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full justify-center pt-2 sm:pt-4 px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 w-full justify-center mt-4 sm:mt-6 md:mt-8 px-4 sm:px-0">
             <Button
               onClick={handleExploreClick}
               className="transform-gpu w-full sm:w-auto h-12 sm:h-14 px-8 sm:px-10 rounded-2xl text-white font-bold transition-all duration-300 hover:-translate-y-1 active:scale-95 cursor-pointer"

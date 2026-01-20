@@ -29,7 +29,7 @@ function ProjectCard({
     <div
       className={`group cursor-pointer flex flex-col ${
         imagePosition === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'
-      } bg-white ${borderRadiusClass} shadow-lg transition-all duration-300 group-hover:shadow-2xl`}
+      } bg-transparent ${borderRadiusClass} transition-all duration-300`}
       onClick={onClick}
     >
       {/* Image Container */}
@@ -66,10 +66,10 @@ function ProjectCard({
             : 'lg:pr-8 lg:pl-4 lg:py-4'
         }`}
       >
-        <h3 className="text-2xl lg:text-3xl font-bold font-display tracking-tight text-gray-900">
+        <h3 className="text-2xl lg:text-3xl font-bold font-display tracking-tight text-white">
           {t(project.titleKey as any)}
         </h3>
-        <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+        <p className="text-gray-400 text-base lg:text-lg leading-relaxed">
           {t(project.descriptionKey as any)}
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
@@ -101,11 +101,11 @@ export function FeaturedProjects() {
 
   return (
     <>
-      <section id="projects" className="py-16 md:py-24 relative">
+      <section id="projects" className="py-16 px-4 sm:px-6 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neon-purple/10 rounded-full blur-[100px] -z-10" />
 
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col gap-6 mb-16">
             <div className="space-y-4">
               <div
@@ -143,18 +143,6 @@ export function FeaturedProjects() {
                 imagePosition={index % 2 === 0 ? 'left' : 'right'}
               />
             ))}
-          </div>
-
-          <div className="mt-20 text-center">
-            <p className="text-gray-500 text-sm font-medium uppercase tracking-widest mb-6">
-              {t('callToAction')}
-            </p>
-            <a href="#" className="inline-flex items-center gap-3 group">
-              <span className="text-2xl md:text-3xl font-bold font-display border-b-2 border-primary/40 group-hover:border-primary transition-all">
-                {t('cta.viewAll')}
-              </span>
-              <ArrowRight className="size-6 text-primary group-hover:translate-x-2 transition-transform" />
-            </a>
           </div>
         </div>
       </section>

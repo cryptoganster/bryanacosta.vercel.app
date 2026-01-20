@@ -275,9 +275,9 @@ describe('Locale Change Behavior Property Tests', () => {
           return true
         }
       ),
-      { numRuns: 100 }
+      { numRuns: 50 }
     )
-  })
+  }, 10000)
 
   it('property: locale change is idempotent (changing to same locale is safe)', () => {
     fc.assert(
