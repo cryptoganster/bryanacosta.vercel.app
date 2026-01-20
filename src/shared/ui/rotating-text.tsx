@@ -196,7 +196,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
     return (
       <motion.span
         className={cn(
-          'flex flex-wrap whitespace-pre-wrap relative tracking-wide',
+          'flex flex-wrap whitespace-pre-wrap relative tracking-tight',
           mainClassName
         )}
         {...rest}
@@ -225,7 +225,10 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
               return (
                 <span
                   key={wordIndex}
-                  className={cn('inline-flex', splitLevelClassName)}
+                  className={cn(
+                    'inline-flex tracking-[inherit]',
+                    splitLevelClassName
+                  )}
                 >
                   {wordObj.characters.map((char, charIndex) => (
                     <motion.span
@@ -243,7 +246,11 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
                           )
                         ),
                       }}
-                      className={cn('inline-block', elementLevelClassName)}
+                      className={cn(
+                        'inline-block mr-[0.02em]',
+                        elementLevelClassName
+                      )}
+                      style={{ letterSpacing: 'inherit' }}
                     >
                       {char}
                     </motion.span>
