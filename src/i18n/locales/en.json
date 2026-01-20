@@ -3,7 +3,7 @@
     "brand": "Full-Stack Developer",
     "nav": {
       "services": "Services",
-      "projects": "Projects",
+      "projects": "Portfolio",
       "stack": "Stack",
       "journey": "Journey"
     },
@@ -451,6 +451,62 @@
     "message": {
       "required": "Message is required",
       "minLength": "Message must be at least 10 characters"
+    }
+  },
+  "workflow": {
+    "badge": "OUR WORKFLOW",
+    "title": {
+      "part1": "Our",
+      "highlight": "Snake Line",
+      "part2": "Process"
+    },
+    "subtitle": "A distinctive, streamlined approach to building world-class software. We connect the dots between your vision and reality.",
+    "steps": {
+      "discovery": {
+        "title": "Discovery & Goals",
+        "subtitle": "Defining the north star",
+        "activities": [
+          "Stakeholder interviews & analysis",
+          "Market requirement definition"
+        ]
+      },
+      "strategy": {
+        "title": "Strategy & Arch",
+        "subtitle": "Laying a scalable foundation",
+        "activities": [
+          "Tech stack selection",
+          "Database schema design"
+        ]
+      },
+      "development": {
+        "title": "Development",
+        "subtitle": "Bringing ideas to life",
+        "activities": [
+          "Agile sprint cycles",
+          "Continuous integration"
+        ]
+      },
+      "testing": {
+        "title": "Testing & QA",
+        "subtitle": "Ensuring flawless performance",
+        "activities": [
+          "Automated QA suites",
+          "Load and stress testing"
+        ]
+      },
+      "delivery": {
+        "title": "Delivery & Support",
+        "subtitle": "Launch and beyond",
+        "activities": [
+          "Deployment pipelines",
+          "24/7 post-launch monitoring"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Let's build something great together. Our process ensures transparency and excellence at every step.",
+      "button": "Start Discovery"
     }
   }
 }

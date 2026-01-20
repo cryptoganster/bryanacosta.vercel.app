@@ -452,5 +452,61 @@
       "required": "El mensaje es requerido",
       "minLength": "El mensaje debe tener al menos 10 caracteres"
     }
+  },
+  "workflow": {
+    "badge": "NUESTRO FLUJO",
+    "title": {
+      "part1": "Nuestro",
+      "highlight": "Proceso Serpiente",
+      "part2": ""
+    },
+    "subtitle": "Un enfoque distintivo y optimizado para construir software de clase mundial. Conectamos los puntos entre tu visión y la realidad.",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento y Objetivos",
+        "subtitle": "Definiendo la estrella del norte",
+        "activities": [
+          "Entrevistas y análisis de stakeholders",
+          "Definición de requisitos del mercado"
+        ]
+      },
+      "strategy": {
+        "title": "Estrategia y Arquitectura",
+        "subtitle": "Construyendo una base escalable",
+        "activities": [
+          "Selección de stack tecnológico",
+          "Diseño de esquema de base de datos"
+        ]
+      },
+      "development": {
+        "title": "Desarrollo",
+        "subtitle": "Dando vida a las ideas",
+        "activities": [
+          "Ciclos de sprint ágiles",
+          "Integración continua"
+        ]
+      },
+      "testing": {
+        "title": "Testing y QA",
+        "subtitle": "Asegurando rendimiento impecable",
+        "activities": [
+          "Suites de QA automatizadas",
+          "Pruebas de carga y estrés"
+        ]
+      },
+      "delivery": {
+        "title": "Entrega y Soporte",
+        "subtitle": "Lanzamiento y más allá",
+        "activities": [
+          "Pipelines de despliegue",
+          "Monitoreo post-lanzamiento 24/7"
+        ]
+      }
+    },
+    "cta": {
+      "title": "¿Listo para comenzar tu proyecto?",
+      "description": "Construyamos algo grandioso juntos. Nuestro proceso garantiza transparencia y excelencia en cada paso.",
+      "button": "Iniciar Descubrimiento"
+    }
   }
 }
