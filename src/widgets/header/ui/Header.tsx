@@ -56,7 +56,16 @@ export function Header() {
     <>
       <header className="fixed top-0 w-full z-50 pt-4 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 px-6 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full shadow-lg shadow-black/20">
+          <div 
+            className="flex items-center justify-between h-16 px-6 rounded-full shadow-lg"
+            style={{
+              background: 'rgba(0, 0, 0, 0.4)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+            }}
+          >
             {/* Logo */}
             <div className="flex items-center gap-3 group cursor-pointer">
               <div className="size-10 bg-gradient-to-br from-primary to-neon-purple rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
@@ -143,8 +152,17 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           />
 
-          {/* Menu Content */}
-          <div className="absolute top-24 left-6 right-6 bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl z-10">
+          {/* Menu Content with Glassmorphism */}
+          <div 
+            className="absolute top-24 left-6 right-6 rounded-3xl shadow-2xl z-10"
+            style={{
+              background: 'rgba(0, 0, 0, 0.9)',
+              backdropFilter: 'blur(30px)',
+              WebkitBackdropFilter: 'blur(30px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+            }}
+          >
             {/* Navigation Links */}
             <nav className="flex flex-col p-4">
               {navItems.map((item) => (

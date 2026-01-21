@@ -57,9 +57,39 @@ export function FloatingPillNav({ items, className }: FloatingPillNavProps) {
               'group relative px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-300',
               'hover:scale-105 active:scale-95',
               isActive
-                ? 'bg-white/10 backdrop-blur-sm text-white border border-white/20'
-                : 'text-muted-foreground hover:text-white hover:bg-white/5 hover:border hover:border-white/10'
+                ? 'text-white border'
+                : 'text-muted-foreground hover:text-white border'
             )}
+            style={
+              isActive
+                ? {
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  }
+                : {
+                    background: 'transparent',
+                    borderColor: 'transparent',
+                  }
+            }
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'
+                e.currentTarget.style.backdropFilter = 'blur(10px)'
+                e.currentTarget.style.WebkitBackdropFilter = 'blur(10px)'
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.background = 'transparent'
+                e.currentTarget.style.backdropFilter = 'none'
+                e.currentTarget.style.WebkitBackdropFilter = 'none'
+                e.currentTarget.style.borderColor = 'transparent'
+              }
+            }}
           >
             <span className="relative z-10">{item.label}</span>
           </Link>
