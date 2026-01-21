@@ -202,7 +202,14 @@ export function Hero() {
                   : undefined
               }
             >
-              {t('cta.workflow')}
+              {t('cta.workflow')}{' '}
+              <Image
+                src="/business-bag.svg"
+                alt="business"
+                width={24}
+                height={24}
+                className="ml-1 size-6"
+              />
             </Button>
             <Button
               onClick={handleExploreClick}
