@@ -12,8 +12,8 @@ export default function Page() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-neon-purple/30 selection:text-white">
       <Header />
       <Hero />
-      <Services />
       <WorkflowProcess />
+      <Services />
       <FeaturedProjects />
       <Contact />
     </div>
