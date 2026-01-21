@@ -13,12 +13,14 @@ export function WorkflowProcess() {
       className="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden"
       aria-labelledby="workflow-heading"
     >
-      {/* Background grid pattern - Higher z-index and more visible */}
+      {/* Background grid pattern - Higher z-index and more visible with gradient mask */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.15] z-[1]"
+        className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 100%)',
         }}
         aria-hidden="true"
       />
