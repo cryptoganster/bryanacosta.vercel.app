@@ -20,7 +20,7 @@ export function StepCard({ step, isMobile = false }: StepCardProps) {
     <div 
       className={cn(
         "w-full max-w-md bg-surface-dark dark:bg-surface-dark border border-gray-800 rounded-2xl shadow-xl",
-        "hover:border-primary/50 transition-all duration-300 relative overflow-hidden",
+        "hover:border-[#4C02FB]/50 transition-all duration-300 relative overflow-hidden",
         "group-hover:-translate-y-1",
         isMobile ? "p-6" : "p-8"
       )}
@@ -36,12 +36,12 @@ export function StepCard({ step, isMobile = false }: StepCardProps) {
           "font-bold text-white mb-1",
           isMobile ? "text-xl" : "text-2xl"
         )}>
-          <span className="text-primary mr-2">{step.number}.</span>
+          <span className="text-[#4C02FB] mr-2">{step.number}.</span>
           {t(step.titleKey)}
         </h3>
         
         <p className={cn(
-          "text-primary/80 font-medium uppercase tracking-wider mb-4",
+          "text-[#4C02FB]/80 font-medium uppercase tracking-wider mb-4",
           isMobile ? "text-xs" : "text-sm"
         )}>
           {t(step.subtitleKey)}
@@ -53,7 +53,7 @@ export function StepCard({ step, isMobile = false }: StepCardProps) {
         )}>
           {activities.map((activity, idx) => (
             <li key={idx} className="flex items-start gap-2">
-              <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+              <CheckCircle className="w-4 h-4 text-[#4C02FB] mt-1 flex-shrink-0" />
               <span>{activity}</span>
             </li>
           ))}

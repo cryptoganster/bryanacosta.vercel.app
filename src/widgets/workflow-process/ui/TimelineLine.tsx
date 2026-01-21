@@ -5,11 +5,11 @@ export function TimelineLine() {
       aria-hidden="true"
     >
       {/* Base gradient line */}
-      <div className="h-full w-full bg-gradient-to-b from-gray-800 via-primary to-gray-800 opacity-30" />
+      <div className="h-full w-full bg-gradient-to-b from-gray-800 via-[#4C02FB] to-gray-800 opacity-30" />
       
       {/* Animated flowing overlay */}
       <div 
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-primary to-transparent opacity-70 h-full w-full blur-[1px]"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-[#4C02FB] to-transparent opacity-70 h-full w-full blur-[1px]"
         style={{
           backgroundSize: '100% 200%',
           animation: 'flow 10s linear infinite',

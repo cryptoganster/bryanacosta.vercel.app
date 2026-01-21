@@ -27,11 +27,11 @@ export function WorkflowCTA() {
       <div className="max-w-4xl mx-auto bg-gradient-to-r from-surface-dark to-[#1a2026] rounded-3xl p-10 md:p-16 border border-gray-800 text-center relative overflow-hidden shadow-2xl">
         {/* Decorative glows */}
         <div 
-          className="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" 
+          className="absolute -top-20 -left-20 w-64 h-64 bg-[#4C02FB]/20 rounded-full blur-[80px]" 
           aria-hidden="true"
         />
         <div 
-          className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" 
+          className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#4C02FB]/20 rounded-full blur-[80px]" 
           aria-hidden="true"
         />
 
@@ -44,7 +44,7 @@ export function WorkflowCTA() {
         </p>
         <Button
           onClick={handleStartDiscovery}
-          className="relative z-10 group bg-primary hover:bg-[#165a5d] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-primary/25 flex items-center gap-2 mx-auto"
+          className="relative z-10 group bg-[#4C02FB] hover:bg-[#3D02C9] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg shadow-[#4C02FB]/25 flex items-center gap-2 mx-auto"
         >
           {t('button')}
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

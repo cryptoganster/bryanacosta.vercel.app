@@ -21,8 +21,8 @@ export function StepNode({ step, isFirst }: StepNodeProps) {
         "w-12 h-12 md:w-16 md:h-16",
         "group-hover:scale-110",
         isFirst 
-          ? "border-4 border-primary shadow-[0_0_20px_rgba(30,109,113,0.6)]"
-          : "border-4 border-gray-700 group-hover:border-primary"
+          ? "border-4 border-[#4C02FB] shadow-[0_0_20px_rgba(76,2,251,0.6)]"
+          : "border-4 border-gray-700 group-hover:border-[#4C02FB]"
       )}
       aria-label={`Step ${step.number}`}
     >
