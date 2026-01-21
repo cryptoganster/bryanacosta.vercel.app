@@ -14,11 +14,11 @@ const mockStep: WorkflowStep = {
 }
 
 describe('StepNode', () => {
-  it('should render first step with primary border', () => {
+  it('should render first step with #4C02FB border', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={true} />)
     const node = container.firstChild as HTMLElement
     
-    expect(node.className).toContain('border-primary')
+    expect(node.className).toContain('border-[#4C02FB]')
   })
 
   it('should render non-first steps with gray border', () => {

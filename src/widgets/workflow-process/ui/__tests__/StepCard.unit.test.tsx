@@ -3,39 +3,24 @@ import { render, screen } from '@testing-library/react'
 import { StepCard } from '../StepCard'
 import { WorkflowStep } from '@/entities/workflow-step'
 
-// Mock next-intl
+// Mock next-intl with proper implementation
 vi.mock('next-intl', () => ({
   useTranslations: () => {
-    return (key: string) => {
+    const t = (key: string) => {
       const translations: Record<string, string> = {
         'test.title': 'Test Title',
         'test.subtitle': 'Test Subtitle',
       }
       return translations[key] || key
     }
+    t.raw = (key: string) => {
+      if (key === 'test.activities') {
+        return ['Activity 1', 'Activity 2']
+      }
+      return []
+    }
+    return t
   },
-}))
-
-// Mock useTranslations to return raw array for activities
-const mockUseTranslations = vi.fn(() => {
-  const t = (key: string) => {
-    const translations: Record<string, string> = {
-      'test.title': 'Test Title',
-      'test.subtitle': 'Test Subtitle',
-    }
-    return translations[key] || key
-  }
-  t.raw = (key: string) => {
-    if (key === 'test.activities') {
-      return ['Activity 1', 'Activity 2']
-    }
-    return []
-  }
-  return t
-})
-
-vi.mock('next-intl', () => ({
-  useTranslations: mockUseTranslations,
 }))
 
 const mockStep: WorkflowStep = {
@@ -90,7 +75,7 @@ describe('StepCard', () => {
     const { container } = render(<StepCard step={mockStep} />)
     const card = container.firstChild as HTMLElement
     
-    expect(card.className).toContain('hover:border-primary/50')
+    expect(card.className).toContain('hover:border-[#4C02FB]/50')
     expect(card.className).toContain('group-hover:-translate-y-1')
   })
 })
