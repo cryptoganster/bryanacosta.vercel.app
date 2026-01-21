@@ -13,17 +13,66 @@ export function WorkflowProcess() {
       className="relative py-16 md:py-24 px-4 sm:px-6 overflow-hidden"
       aria-labelledby="workflow-heading"
     >
-      {/* Background grid pattern - Higher z-index and more visible with gradient mask */}
+      {/* Background grid pattern - Full visibility */}
       <div 
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
-          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 100%)',
         }}
         aria-hidden="true"
       />
+
+      {/* Black gradient overlays to hide grid in certain areas - z-[2] above grid */}
+      <div className="absolute inset-0 pointer-events-none z-[2]" aria-hidden="true">
+        {/* Top gradient overlay */}
+        <div 
+          className="absolute top-0 left-0 right-0 h-48"
+          style={{
+            background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, transparent 100%)',
+          }}
+        />
+        
+        {/* Bottom gradient overlay */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-48"
+          style={{
+            background: 'linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, transparent 100%)',
+          }}
+        />
+
+        {/* Left side gradient overlay */}
+        <div 
+          className="absolute top-0 bottom-0 left-0 w-32"
+          style={{
+            background: 'linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)',
+          }}
+        />
+
+        {/* Right side gradient overlay */}
+        <div 
+          className="absolute top-0 bottom-0 right-0 w-32"
+          style={{
+            background: 'linear-gradient(270deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)',
+          }}
+        />
+
+        {/* Diagonal gradient overlay - top left to center */}
+        <div 
+          className="absolute top-0 left-0 w-96 h-96"
+          style={{
+            background: 'radial-gradient(ellipse at top left, rgba(0,0,0,0.7) 0%, transparent 60%)',
+          }}
+        />
+
+        {/* Diagonal gradient overlay - bottom right */}
+        <div 
+          className="absolute bottom-0 right-0 w-96 h-96"
+          style={{
+            background: 'radial-gradient(ellipse at bottom right, rgba(0,0,0,0.7) 0%, transparent 60%)',
+          }}
+        />
+      </div>
 
       {/* Abstract gradient shapes - Metallic white blurs - Lower z-index */}
       <div className="absolute inset-0 pointer-events-none z-[0]" aria-hidden="true">
