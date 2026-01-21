@@ -91,14 +91,15 @@ export function Hero() {
           {/* Badge with Glassmorphism */}
           <div
             className="inline-flex items-center gap-2 px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base tracking-[0.2em] font-figtree"
-            style={{ 
-              color: '#ffffffff', 
+            style={{
+              color: '#ffffffff',
               fontWeight: 800,
               background: 'rgba(255, 255, 255, 0.05)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+              boxShadow:
+                '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
             }}
           >
             <Image
@@ -140,10 +141,12 @@ export function Hero() {
               <span
                 className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-xl relative overflow-hidden"
                 style={{
-                  background: 'linear-gradient(90deg, rgba(72, 0, 255, 0.8), rgba(228, 96, 110, 0.8))',
+                  background:
+                    'linear-gradient(90deg, rgba(72, 0, 255, 0.8), rgba(228, 96, 110, 0.8))',
                   backdropFilter: 'blur(10px)',
                   WebkitBackdropFilter: 'blur(10px)',
-                  boxShadow: '0 4px 20px rgba(72, 0, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                  boxShadow:
+                    '0 4px 20px rgba(72, 0, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 }}
               >
                 <RotatingText
@@ -184,20 +187,24 @@ export function Hero() {
                 background: 'rgba(74, 43, 252, 0.9)',
                 backdropFilter: 'blur(10px)',
                 WebkitBackdropFilter: 'blur(10px)',
-                boxShadow: isMobile ? '0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' : '0 0 30px rgba(72, 0, 255, 0.4), 0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                boxShadow: isMobile
+                  ? '0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                  : '0 0 30px rgba(72, 0, 255, 0.4), 0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
               }}
               onMouseEnter={
                 !isMobile
                   ? (e) => {
-                      e.currentTarget.style.boxShadow = '0 0 45px rgba(72, 0, 255, 0.6), 0 4px 20px rgba(74, 43, 252, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                      e.currentTarget.style.boxShadow =
+                        '0 0 45px rgba(72, 0, 255, 0.6), 0 4px 20px rgba(74, 43, 252, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                     }
                   : undefined
               }
               onMouseLeave={
                 !isMobile
                   ? (e) => {
-                      e.currentTarget.style.boxShadow = '0 0 30px rgba(72, 0, 255, 0.4), 0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+                      e.currentTarget.style.boxShadow =
+                        '0 0 30px rgba(72, 0, 255, 0.4), 0 4px 20px rgba(74, 43, 252, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                     }
                   : undefined
               }
@@ -220,15 +227,18 @@ export function Hero() {
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+                boxShadow:
+                  '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.2)'
+                e.currentTarget.style.border =
+                  '1px solid rgba(255, 255, 255, 0.2)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'
-                e.currentTarget.style.border = '1px solid rgba(255, 255, 255, 0.1)'
+                e.currentTarget.style.border =
+                  '1px solid rgba(255, 255, 255, 0.1)'
               }}
             >
               {t('cta.explore')}{' '}

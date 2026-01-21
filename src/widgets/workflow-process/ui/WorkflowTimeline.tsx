@@ -11,15 +11,15 @@ export function WorkflowTimeline() {
       <TimelineLine />
 
       {/* Process Steps */}
-      <div 
+      <div
         className="flex flex-col gap-12 md:gap-0 relative z-10"
         role="list"
         aria-label="Workflow process steps"
       >
         {workflowSteps.map((step, index) => (
-          <WorkflowStep 
-            key={step.id} 
-            step={step} 
+          <WorkflowStep
+            key={step.id}
+            step={step}
             index={index}
             isFirst={index === 0}
           />

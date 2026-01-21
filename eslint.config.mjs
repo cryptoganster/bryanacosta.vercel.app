@@ -1,11 +1,11 @@
 // @ts-check
-import { defineConfig } from "eslint/config";
+import { defineConfig } from 'eslint/config'
 
 export default defineConfig({
-  ignores: [".next/**", "node_modules/**", "public/**", "**/*.config.*"],
+  ignores: ['.next/**', 'node_modules/**', 'public/**', '**/*.config.*'],
   languageOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     globals: {
       browser: true,
       node: true,
@@ -13,8 +13,8 @@ export default defineConfig({
     },
   },
   rules: {
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": "warn",
-    "no-alert": "warn",
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'no-console': 'warn',
+    'no-alert': 'warn',
   },
-});
+})

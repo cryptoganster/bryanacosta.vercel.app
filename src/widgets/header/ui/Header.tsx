@@ -56,14 +56,15 @@ export function Header() {
     <>
       <header className="fixed top-0 w-full z-50 pt-4 px-6">
         <div className="max-w-7xl mx-auto">
-          <div 
+          <div
             className="flex items-center justify-between h-16 px-6 rounded-full shadow-lg"
             style={{
               background: 'rgba(0, 0, 0, 0.4)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+              boxShadow:
+                '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
             }}
           >
             {/* Logo */}
@@ -153,14 +154,15 @@ export function Header() {
           />
 
           {/* Menu Content with Glassmorphism */}
-          <div 
+          <div
             className="absolute top-24 left-6 right-6 rounded-3xl shadow-2xl z-10"
             style={{
               background: 'rgba(0, 0, 0, 0.9)',
               backdropFilter: 'blur(30px)',
               WebkitBackdropFilter: 'blur(30px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+              boxShadow:
+                '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
             }}
           >
             {/* Navigation Links */}

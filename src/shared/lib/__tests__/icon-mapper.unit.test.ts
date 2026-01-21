@@ -19,8 +19,8 @@ describe('getIconComponent', () => {
 
   it('should map all workflow icon names correctly', () => {
     const workflowIcons = ['Search', 'Ruler', 'Code', 'CheckCircle', 'Rocket']
-    
-    workflowIcons.forEach(iconName => {
+
+    workflowIcons.forEach((iconName) => {
       const IconComponent = getIconComponent(iconName)
       expect(IconComponent).toBeDefined()
       expect(IconComponent).toBeTruthy()

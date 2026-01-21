@@ -36,7 +36,7 @@ const mockStep: WorkflowStep = {
 describe('StepCard', () => {
   it('should render all content fields', () => {
     const { container } = render(<StepCard step={mockStep} />)
-    
+
     expect(screen.getByText('Test Title')).toBeDefined()
     expect(screen.getByText('Test Subtitle')).toBeDefined()
     expect(screen.getByText('Activity 1')).toBeDefined()
@@ -45,14 +45,14 @@ describe('StepCard', () => {
 
   it('should render step number', () => {
     render(<StepCard step={mockStep} />)
-    
+
     expect(screen.getByText(/01\./)).toBeDefined()
   })
 
   it('should render activities list with icons', () => {
     const { container } = render(<StepCard step={mockStep} />)
     const icons = container.querySelectorAll('svg')
-    
+
     // Should have at least activity icons (2) + background icon (1)
     expect(icons.length).toBeGreaterThanOrEqual(3)
   })
@@ -60,21 +60,21 @@ describe('StepCard', () => {
   it('should apply mobile padding when isMobile is true', () => {
     const { container } = render(<StepCard step={mockStep} isMobile={true} />)
     const card = container.firstChild as HTMLElement
-    
+
     expect(card.className).toContain('p-6')
   })
 
   it('should apply desktop padding when isMobile is false', () => {
     const { container } = render(<StepCard step={mockStep} isMobile={false} />)
     const card = container.firstChild as HTMLElement
-    
+
     expect(card.className).toContain('p-8')
   })
 
   it('should have hover effect classes', () => {
     const { container } = render(<StepCard step={mockStep} />)
     const card = container.firstChild as HTMLElement
-    
+
     // StepCard has hover:scale and group-hover:-translate-y-1 effects
     expect(card.className).toContain('hover:scale-[1.02]')
     expect(card.className).toContain('group-hover:-translate-y-1')

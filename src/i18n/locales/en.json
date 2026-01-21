@@ -473,10 +473,7 @@
       "strategy": {
         "title": "Strategy & Architecture",
         "subtitle": "Designing the right solution",
-        "activities": [
-          "Tech stack selection",
-          "System archicture & design"
-        ]
+        "activities": ["Tech stack selection", "System archicture & design"]
       },
       "development": {
         "title": "Build",
@@ -489,18 +486,12 @@
       "testing": {
         "title": "Launch",
         "subtitle": "Production-ready delivery",
-        "activities": [
-          "Release readiness",
-          "Monitoring & reliability checks"
-        ]
+        "activities": ["Release readiness", "Monitoring & reliability checks"]
       },
       "delivery": {
         "title": "Scale",
         "subtitle": "Optimizing for growth",
-        "activities": [
-          "Continuous improvements",
-          "Performance optimization"
-        ]
+        "activities": ["Continuous improvements", "Performance optimization"]
       }
     },
     "cta": {

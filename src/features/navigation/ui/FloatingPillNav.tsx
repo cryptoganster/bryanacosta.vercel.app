@@ -14,8 +14,11 @@ interface FloatingPillNavProps {
   className?: string
 }
 
-export function FloatingPillNav({ items, activeSection, className }: FloatingPillNavProps) {
-
+export function FloatingPillNav({
+  items,
+  activeSection,
+  className,
+}: FloatingPillNavProps) {
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -63,7 +66,8 @@ export function FloatingPillNav({ items, activeSection, className }: FloatingPil
                     backdropFilter: 'blur(10px)',
                     WebkitBackdropFilter: 'blur(10px)',
                     borderColor: 'rgba(255, 255, 255, 0.2)',
-                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                    boxShadow:
+                      '0 4px 20px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                   }
                 : {
                     background: 'transparent',
@@ -74,7 +78,8 @@ export function FloatingPillNav({ items, activeSection, className }: FloatingPil
               if (!isActive) {
                 e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'
                 e.currentTarget.style.backdropFilter = 'blur(10px)'
-                ;(e.currentTarget.style as any).WebkitBackdropFilter = 'blur(10px)'
+                ;(e.currentTarget.style as any).WebkitBackdropFilter =
+                  'blur(10px)'
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
               }
             }}

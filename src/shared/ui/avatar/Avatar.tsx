@@ -16,14 +16,15 @@ export function Avatar() {
       />
 
       {/* Avatar Container with Glassmorphism */}
-      <div 
+      <div
         className="relative w-36 h-36 md:w-44 md:h-44 rounded-full p-1.5"
         style={{
           background: 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
           border: '2px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+          boxShadow:
+            '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
         }}
       >
         <div className="w-full h-full rounded-full bg-cover bg-center overflow-hidden bg-surface shadow-2xl">
@@ -36,14 +37,15 @@ export function Avatar() {
       </div>
 
       {/* Status Badge with Glassmorphism */}
-      <div 
+      <div
         className="absolute bottom-2 right-2 rounded-full px-3 sm:px-4 py-1.5 flex items-center gap-2"
         style={{
           background: 'rgba(0, 0, 0, 0.4)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
+          boxShadow:
+            '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
         }}
       >
         <span className="relative flex h-2.5 w-2.5 flex-shrink-0">

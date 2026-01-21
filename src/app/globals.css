@@ -44,7 +44,7 @@
   --neon-green: oklch(0.8 0.22 160);
   --neon-blue: oklch(0.8 0.15 195);
   --surface: oklch(0.15 0.02 280);
-  
+
   /* Workflow section colors */
   --primary-workflow: #1e6d71;
   --surface-dark: #22262d;
@@ -90,7 +90,7 @@
   --neon-green: oklch(0.8 0.22 160);
   --neon-blue: oklch(0.8 0.15 195);
   --surface: oklch(0.12 0.02 280);
-  
+
   /* Workflow section colors */
   --primary-workflow: #1e6d71;
   --surface-dark: #22262d;

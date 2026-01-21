@@ -458,7 +458,7 @@
     "title": {
       "part1": "Mi",
       "highlight": "Proceso Serpiente",
-      "part2": ""
+      "part2": "De Visión a Escala"
     },
     "subtitle": "Un enfoque distintivo y optimizado para construir software de clase mundial. Conecto los puntos entre tu visión y la realidad.",
     "steps": {
@@ -481,10 +481,7 @@
       "development": {
         "title": "Desarrollo",
         "subtitle": "Dando vida a las ideas",
-        "activities": [
-          "Ciclos de sprint ágiles",
-          "Integración continua"
-        ]
+        "activities": ["Ciclos de sprint ágiles", "Integración continua"]
       },
       "testing": {
         "title": "Testing y QA",

@@ -13,12 +13,12 @@ interface WorkflowStepProps {
 
 export function WorkflowStep({ step, index, isFirst }: WorkflowStepProps) {
   const isLeft = step.position === 'left'
-  
+
   return (
-    <div 
+    <div
       className={cn(
-        "group relative flex flex-col md:flex-row items-start md:items-center w-full",
-        index > 0 && "md:mt-[-40px]"
+        'group relative flex flex-col md:flex-row items-start md:items-center w-full',
+        index > 0 && 'md:mt-[-40px]'
       )}
       role="listitem"
     >

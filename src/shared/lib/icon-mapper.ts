@@ -1,10 +1,10 @@
-import { 
-  Search, 
-  Ruler, 
-  Code, 
-  CheckCircle, 
+import {
+  Search,
+  Ruler,
+  Code,
+  CheckCircle,
   Rocket,
-  LucideIcon 
+  LucideIcon,
 } from 'lucide-react'
 
 const iconMap: Record<string, LucideIcon> = {

@@ -17,14 +17,14 @@ describe('StepNode', () => {
   it('should render first step with #4C02FB border', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={true} />)
     const node = container.firstChild as HTMLElement
-    
+
     expect(node.className).toContain('border-[#4C02FB]')
   })
 
   it('should render non-first steps with gray border', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={false} />)
     const node = container.firstChild as HTMLElement
-    
+
     // All nodes now have border-white/20 by default and change to #4C02FB on hover
     expect(node.className).toContain('border-white/20')
     expect(node.className).toContain('group-hover:border-[#4C02FB]')
@@ -33,14 +33,14 @@ describe('StepNode', () => {
   it('should render icon correctly', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={false} />)
     const icon = container.querySelector('svg')
-    
+
     expect(icon).toBeDefined()
   })
 
   it('should have responsive sizing classes', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={false} />)
     const node = container.firstChild as HTMLElement
-    
+
     expect(node.className).toContain('w-12')
     expect(node.className).toContain('h-12')
     expect(node.className).toContain('md:w-16')
@@ -50,7 +50,7 @@ describe('StepNode', () => {
   it('should have aria-label present', () => {
     const { container } = render(<StepNode step={mockStep} isFirst={false} />)
     const node = container.firstChild as HTMLElement
-    
+
     expect(node.getAttribute('aria-label')).toBe('Step 01')
   })
 })

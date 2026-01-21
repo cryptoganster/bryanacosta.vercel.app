@@ -8,8 +8,8 @@ export function WorkflowProcess() {
   const t = useTranslations('workflow')
 
   return (
-    <section 
-      id="workflow" 
+    <section
+      id="workflow"
       className="relative py-16 md:py-24 px-6 overflow-hidden"
       aria-labelledby="workflow-heading"
     >
@@ -46,7 +46,7 @@ export function WorkflowProcess() {
           <span className="inline-block py-1 px-3 rounded-full bg-white/5 backdrop-blur-sm text-white text-sm font-bold tracking-wide border border-white/10 shadow-lg">
             {t('badge')}
           </span>
-          <h2 
+          <h2
             id="workflow-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight"
           >
