@@ -173,7 +173,8 @@ export function ContactForm({ className }: ContactFormProps) {
               'bg-[#4A2BFC]',
               'hover:shadow-[0_0_30px_rgba(74,43,252,0.3)]',
               'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:shadow-none',
-              'focus:outline-none focus:ring-2 focus:ring-[#4A2BFC] focus:ring-offset-2 focus:ring-offset-[#0a0b0d]'
+              'focus:outline-none focus:ring-2 focus:ring-[#4A2BFC] focus:ring-offset-2 focus:ring-offset-[#0a0b0d]',
+              'cursor-pointer'
             )}
           >
             {/* Shimmer effect on hover */}
