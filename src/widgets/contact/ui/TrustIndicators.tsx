@@ -90,7 +90,7 @@ export function TrustIndicators({ className }: TrustIndicatorsProps) {
               </div>
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  Email Me
+                  Email
                 </p>
                 <p className="mt-0.5 text-sm font-medium text-white">
                   bryanstevensacosta@gmail.com
@@ -117,7 +117,7 @@ export function TrustIndicators({ className }: TrustIndicatorsProps) {
               </div>
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  WhatsApp Me
+                  WhatsApp
                 </p>
                 <p className="mt-0.5 text-sm font-medium text-white">
                   +1 (809) 798 2896
