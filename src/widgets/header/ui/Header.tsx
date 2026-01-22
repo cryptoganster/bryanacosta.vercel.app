@@ -132,6 +132,8 @@ export function Header() {
                 size="icon"
                 className="md:hidden text-white rounded-full"
                 onClick={handleMenuToggle}
+                aria-label={isMobileMenuOpen ? t('closeMenu') : t('openMenu')}
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
                   <X className="size-5" />

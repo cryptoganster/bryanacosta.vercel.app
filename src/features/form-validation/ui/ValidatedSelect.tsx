@@ -78,14 +78,14 @@ export function ValidatedSelect({
             'transition-all duration-300',
             'focus:bg-[rgba(17,19,23,0.9)] focus:border-primary focus:shadow-[0_0_0_2px_rgba(0,187,224,0.2)]',
             'hover:border-white/10',
-            !value && 'text-gray-500',
+            !value && 'text-gray-400',
             validationState.isDirty &&
               !validationState.isValid &&
               'border-destructive'
           )}
         >
           {placeholder && (
-            <option value="" disabled className="bg-gray-900 text-gray-500">
+            <option value="" disabled className="bg-gray-900 text-gray-400">
               {placeholder}
             </option>
           )}

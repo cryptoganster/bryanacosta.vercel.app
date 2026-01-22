@@ -58,7 +58,7 @@ export function ValidatedInput({
     >
       <div className="relative">
         {icon && (
-          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[20px] text-gray-500">
+          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[20px] text-gray-400">
             {icon}
           </span>
         )}

@@ -64,7 +64,7 @@ export function TrustIndicators({ className }: TrustIndicatorsProps) {
             </div>
             <div>
               <h3 className="text-lg font-bold text-white">{item.title}</h3>
-              <p className="mt-1 text-sm text-gray-500">{item.description}</p>
+              <p className="mt-1 text-sm text-gray-400">{item.description}</p>
             </div>
           </div>
         ))}
@@ -96,7 +96,7 @@ export function TrustIndicators({ className }: TrustIndicatorsProps) {
                   bryanstevensacosta@gmail.com
                 </p>
               </div>
-              <span className="material-symbols-outlined text-gray-500 transition-transform group-hover:translate-x-1 group-hover:text-white">
+              <span className="material-symbols-outlined text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-white">
                 arrow_forward
               </span>
             </div>
@@ -123,7 +123,7 @@ export function TrustIndicators({ className }: TrustIndicatorsProps) {
                   +1 (809) 798 2896
                 </p>
               </div>
-              <span className="material-symbols-outlined text-gray-500 transition-transform group-hover:translate-x-1 group-hover:text-white">
+              <span className="material-symbols-outlined text-gray-400 transition-transform group-hover:translate-x-1 group-hover:text-white">
                 arrow_forward
               </span>
             </div>

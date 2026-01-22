@@ -66,27 +66,27 @@ describe('Services Accessibility', () => {
     it('should have label before main heading', () => {
       const { container } = render(<Services />)
 
-      const label = container.querySelector('h5')
+      const label = container.querySelector('p')
       const heading = container.querySelector('h2')
 
       expect(label).toBeTruthy()
       expect(heading).toBeTruthy()
 
       // Label should come before heading in DOM
-      const allElements = Array.from(container.querySelectorAll('h5, h2'))
-      expect(allElements[0].tagName).toBe('H5')
+      const allElements = Array.from(container.querySelectorAll('p, h2'))
+      expect(allElements[0].tagName).toBe('P')
       expect(allElements[1].tagName).toBe('H2')
     })
 
     it('should not skip heading levels', () => {
       const { container } = render(<Services />)
 
-      // Should have h5, h2, h3 but not h1, h4, h6
-      expect(container.querySelector('h5')).toBeTruthy()
+      // Should have h2, h3 but not h1, h4, h5, h6 (proper heading hierarchy)
       expect(container.querySelector('h2')).toBeTruthy()
       expect(container.querySelector('h3')).toBeTruthy()
       expect(container.querySelector('h1')).toBeFalsy()
       expect(container.querySelector('h4')).toBeFalsy()
+      expect(container.querySelector('h5')).toBeFalsy()
       expect(container.querySelector('h6')).toBeFalsy()
     })
   })
