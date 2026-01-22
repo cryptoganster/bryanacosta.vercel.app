@@ -7,7 +7,9 @@
       "stack": "Stack",
       "journey": "Trayectoria"
     },
-    "downloadCV": "Descargar CV"
+    "downloadCV": "Descargar CV",
+    "openMenu": "Abrir menú de navegación",
+    "closeMenu": "Cerrar menú de navegación"
   },
   "hero": {
     "badge": "SOFTWARE BUILDER",

@@ -15,12 +15,12 @@ export function Services() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div className="max-w-2xl">
-            <h5
+            <p
               className="font-bold tracking-widest text-xs uppercase mb-3 ml-1"
               style={{ color: '#00E68B' }}
             >
               {t('label')}
-            </h5>
+            </p>
             <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight tracking-tight">
               {t('title')}
             </h2>
