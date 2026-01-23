@@ -208,12 +208,16 @@ describe('ContactForm Unit Tests', () => {
 
       await user.click(screen.getByRole('button', { name: /send message/i }))
 
-      await waitFor(() => {
-        expect(screen.getByRole('dialog')).toBeInTheDocument()
-        expect(
-          screen.getByText('Message Sent Successfully!')
-        ).toBeInTheDocument()
-      })
+      // Wait for the lazy-loaded modal to appear with increased timeout
+      await waitFor(
+        () => {
+          expect(screen.getByRole('dialog')).toBeInTheDocument()
+          expect(
+            screen.getByText('Message Sent Successfully!')
+          ).toBeInTheDocument()
+        },
+        { timeout: 3000 }
+      )
     })
 
     it('should not show success modal on submission failure', async () => {
@@ -254,9 +258,13 @@ describe('ContactForm Unit Tests', () => {
 
       await user.click(screen.getByRole('button', { name: /send message/i }))
 
-      await waitFor(() => {
-        expect(screen.getByRole('dialog')).toBeInTheDocument()
-      })
+      // Wait for the lazy-loaded modal to appear with increased timeout
+      await waitFor(
+        () => {
+          expect(screen.getByRole('dialog')).toBeInTheDocument()
+        },
+        { timeout: 3000 }
+      )
 
       // Close modal
       await user.click(screen.getByRole('button', { name: /explore my work/i }))

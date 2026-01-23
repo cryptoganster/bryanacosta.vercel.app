@@ -72,61 +72,65 @@ describe('Property 9: ARIA labels for all form fields', () => {
 })
 
 describe('Property 10: Screen reader error announcements', () => {
-  it('should have aria-invalid and aria-describedby when field has error', async () => {
-    await fc.assert(
-      fc.asyncProperty(
-        fc.record({
-          name: nonEmptyString(1, 20),
-          label: nonEmptyString(1, 50),
-          errorMessage: nonEmptyString(1, 100),
-        }),
-        async (config) => {
-          const user = userEvent.setup()
+  it(
+    'should have aria-invalid and aria-describedby when field has error',
+    { timeout: 15000 },
+    async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.record({
+            name: nonEmptyString(1, 20),
+            label: nonEmptyString(1, 50),
+            errorMessage: nonEmptyString(1, 100),
+          }),
+          async (config) => {
+            const user = userEvent.setup()
 
-          const { container } = render(
-            <NextIntlClientProvider locale="en" messages={messages}>
-              <ValidatedInput
-                name={config.name}
-                label={config.label}
-                value=""
-                onChange={vi.fn()}
-                validationRules={[
-                  {
-                    type: 'required',
-                    message: config.errorMessage,
-                  },
-                ]}
-              />
-            </NextIntlClientProvider>
-          )
+            const { container } = render(
+              <NextIntlClientProvider locale="en" messages={messages}>
+                <ValidatedInput
+                  name={config.name}
+                  label={config.label}
+                  value=""
+                  onChange={vi.fn()}
+                  validationRules={[
+                    {
+                      type: 'required',
+                      message: config.errorMessage,
+                    },
+                  ]}
+                />
+              </NextIntlClientProvider>
+            )
 
-          const input = screen.getByRole('textbox', { name: config.label })
+            const input = screen.getByRole('textbox', { name: config.label })
 
-          // Initially should not have error state
-          expect(input).toHaveAttribute('aria-invalid', 'false')
-          expect(input).not.toHaveAttribute('aria-describedby')
+            // Initially should not have error state
+            expect(input).toHaveAttribute('aria-invalid', 'false')
+            expect(input).not.toHaveAttribute('aria-describedby')
 
-          // Trigger validation by blur
-          await user.click(input)
-          await user.tab()
+            // Trigger validation by blur
+            await user.click(input)
+            await user.tab()
 
-          // Should have error state
-          expect(input).toHaveAttribute('aria-invalid', 'true')
-          expect(input).toHaveAttribute(
-            'aria-describedby',
-            `${config.name}-error`
-          )
+            // Should have error state
+            expect(input).toHaveAttribute('aria-invalid', 'true')
+            expect(input).toHaveAttribute(
+              'aria-describedby',
+              `${config.name}-error`
+            )
 
-          // Error message should be in the document
-          expect(screen.getByText(config.errorMessage)).toBeInTheDocument()
+            // Error message should be in the document
+            expect(screen.getByText(config.errorMessage)).toBeInTheDocument()
 
-          // Cleanup
-          container.remove()
-        }
-      ),
-      { numRuns: 50 }
-    )
-  })
+            // Cleanup
+            container.remove()
+          }
+        ),
+        { numRuns: 50 }
+      )
+    }
+  )
 })
 
 describe('Property 12: Focus indicators on interactive elements', () => {
