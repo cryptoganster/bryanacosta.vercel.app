@@ -16,3 +16,15 @@ terraform/
 *.tfvars
 *.tfstate
 *.tfstate.backup
+
+# Lighthouse reports (generated files)
+lighthouse*.json
+lighthouse*.html
+localhost*.html
+
+# Performance documentation (auto-generated or large files)
+PHASE*_RESULTS.md
+RESUMEN_*.md
+*_OPTIMIZATION.md
+*_ANALYSIS.md
+*_COMPARISON.md

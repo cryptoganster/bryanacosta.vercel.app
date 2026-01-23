@@ -32,11 +32,12 @@ export function Avatar() {
           <Image
             alt={t('avatarAlt')}
             className="w-full h-full object-cover"
-            src="/professional-developer-portrait-dark-background.png"
+            src="/professional-developer-portrait-dark-background.webp"
             width={176}
             height={176}
             priority
-            quality={90}
+            fetchPriority="high"
+            quality={95}
             sizes="(max-width: 768px) 144px, 176px"
           />
         </div>
