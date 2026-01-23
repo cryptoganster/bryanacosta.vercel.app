@@ -36,7 +36,8 @@ export function Avatar() {
             width={176}
             height={176}
             priority
-            quality={90}
+            fetchPriority="high"
+            quality={95}
             sizes="(max-width: 768px) 144px, 176px"
           />
         </div>
