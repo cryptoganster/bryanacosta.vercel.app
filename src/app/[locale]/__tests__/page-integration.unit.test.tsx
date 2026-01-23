@@ -1,6 +1,34 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import Page from '../page'
+import React from 'react'
+
+// Mock next/dynamic to bypass lazy loading in tests
+vi.mock('next/dynamic', () => ({
+  __esModule: true,
+  default: (fn: any, options?: any) => {
+    // Create a wrapper component that will use the mocked version
+    const DynamicComponent = (props: any) => {
+      const [Component, setComponent] = React.useState<any>(null)
+
+      React.useEffect(() => {
+        // Resolve the dynamic import immediately in tests
+        fn().then((mod: any) => {
+          setComponent(() => mod.default)
+        })
+      }, [])
+
+      if (!Component) {
+        // Return the loading component if provided
+        return options?.loading ? options.loading() : null
+      }
+
+      return <Component {...props} />
+    }
+
+    DynamicComponent.displayName = 'DynamicComponent'
+    return DynamicComponent
+  },
+}))
 
 // Mock all widgets
 vi.mock('@/widgets/header/ui/Header', () => ({
@@ -29,23 +57,22 @@ vi.mock('@/widgets/contact', () => ({
   Contact: () => <section data-testid="contact">Contact</section>,
 }))
 
+// Import Page after mocks are set up
+import Page from '../page'
+
 describe('Page Integration', () => {
-  it('should render all sections in correct order', () => {
+  it('should render all sections in correct order', async () => {
     const { container } = render(<Page />)
 
-    const header = screen.getByTestId('header')
-    const hero = screen.getByTestId('hero')
-    const workflow = screen.getByTestId('workflow')
-    const services = screen.getByTestId('services')
-    const featuredProjects = screen.getByTestId('featured-projects')
-    const contact = screen.getByTestId('contact')
-
-    expect(header).toBeInTheDocument()
-    expect(hero).toBeInTheDocument()
-    expect(workflow).toBeInTheDocument()
-    expect(services).toBeInTheDocument()
-    expect(featuredProjects).toBeInTheDocument()
-    expect(contact).toBeInTheDocument()
+    // Wait for dynamic components to load
+    await vi.waitFor(() => {
+      expect(screen.getByTestId('header')).toBeInTheDocument()
+      expect(screen.getByTestId('hero')).toBeInTheDocument()
+      expect(screen.getByTestId('workflow')).toBeInTheDocument()
+      expect(screen.getByTestId('services')).toBeInTheDocument()
+      expect(screen.getByTestId('featured-projects')).toBeInTheDocument()
+      expect(screen.getByTestId('contact')).toBeInTheDocument()
+    })
 
     // Get all sections in DOM order
     const sections = Array.from(container.querySelectorAll('[data-testid]'))
@@ -61,8 +88,14 @@ describe('Page Integration', () => {
     ])
   })
 
-  it('should render Services component after Hero', () => {
+  it('should render Services component after Hero', async () => {
     const { container } = render(<Page />)
+
+    // Wait for dynamic components to load
+    await vi.waitFor(() => {
+      expect(screen.getByTestId('workflow')).toBeInTheDocument()
+      expect(screen.getByTestId('services')).toBeInTheDocument()
+    })
 
     const sections = Array.from(container.querySelectorAll('[data-testid]'))
     const heroIndex = sections.findIndex(
@@ -81,8 +114,14 @@ describe('Page Integration', () => {
     expect(servicesIndex).toBeGreaterThan(workflowIndex)
   })
 
-  it('should render Services component before FeaturedProjects', () => {
+  it('should render Services component before FeaturedProjects', async () => {
     const { container } = render(<Page />)
+
+    // Wait for dynamic components to load
+    await vi.waitFor(() => {
+      expect(screen.getByTestId('services')).toBeInTheDocument()
+      expect(screen.getByTestId('featured-projects')).toBeInTheDocument()
+    })
 
     const sections = Array.from(container.querySelectorAll('[data-testid]'))
     const servicesIndex = sections.findIndex(
